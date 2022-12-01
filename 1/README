@@ -2,5 +2,10 @@ expected output:
 
   $ perl 1.pl
   p1: 68467
-  p2: 20342001
+  p2: 203420
+or
+  $ cc 1.c
+  $ ./a.out
+  p1: 68467
+  p2: 203420
 
