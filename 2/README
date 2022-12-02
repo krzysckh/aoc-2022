@@ -1,0 +1,5 @@
+expected output:
+
+  $ perl 2.pl
+  p1: 8890
+  p2: 10238
