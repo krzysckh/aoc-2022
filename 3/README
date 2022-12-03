@@ -1,0 +1,6 @@
+expected output:
+
+  $ perl 3.pl
+  p1: 8139
+  p2: 2668
+
