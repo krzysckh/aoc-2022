@@ -1,0 +1,6 @@
+expected output:
+
+  $ perl 4.pl
+  p1: 524
+  p2: 798
+
