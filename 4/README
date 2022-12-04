@@ -3,4 +3,9 @@ expected output:
   $ perl 4.pl
   p1: 524
   p2: 798
+or
+  $ cc 4.c
+  $ ./a.out
+  p1: 524
+  p2: 798
 
