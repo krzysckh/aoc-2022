@@ -1,0 +1,6 @@
+expected output:
+
+  $ perl 6.pl
+  p1: 1804
+  p2: 2508
+
