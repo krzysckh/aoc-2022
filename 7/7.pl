@@ -57,10 +57,8 @@ nextcom:
     while (1) {
       $_ = <$f>;
       chomp;
-      #say "got $_";
       if (m/^\d+.*$/) {
         /(\d+)/;
-        #say "match ", $1;
         $cur->size($cur->size() + $1);
       }
       if (m/^\$.*$/ or eof $f) {
