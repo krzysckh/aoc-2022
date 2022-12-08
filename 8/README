@@ -1,0 +1,6 @@
+expected output:
+
+  $ perl 8.pl
+  p1: 1789
+  p2: 314820
+
