@@ -1,0 +1,6 @@
+expected output:
+
+  $ perl 9.pl
+  p1: 6269
+  p2: 2557
+
