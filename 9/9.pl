@@ -110,6 +110,7 @@ sub p2 {
   push @tail, Position->new(x => 0, y => 0) for (0..$tailsz);
 
   my @visited;
+  my @real_traj;
 
   while (<$f>) {
     chomp;
@@ -189,16 +190,24 @@ sub p2 {
         x => $tail[$tailsz]->x(),
         y => $tail[$tailsz]->y()
       );
+      push @real_traj, Position->new(
+        x => $tail[0]->x(),
+        y => $tail[0]->y()
+      );
     }
   }
   my @visited_s;
   push @visited_s, $_->x() . " " . $_->y() for @visited;
   @visited_s = sort @visited_s;
   @visited_s = uniq @visited_s;
-  my (@x, @y);
+  my (@x, @y, @rx, @ry);
   for (@visited) {
     push @x, $_->x();
     push @y, $_->y();
+  }
+  for (@real_traj) {
+    push @rx, $_->x();
+    push @ry, $_->y();
   }
 
   my $chart = Chart::Gnuplot->new(
@@ -211,14 +220,21 @@ sub p2 {
     imagesize => '3, 3'
   );
 
-  my $data = Chart::Gnuplot::DataSet->new(
+  my $tail_d = Chart::Gnuplot::DataSet->new(
     xdata  => \@x,
     ydata  => \@y,
     title => '',
-    style  => 'linespoints',
+    style  => 'lines',
   );
 
-  $chart->plot2d($data);
+  my $front_d = Chart::Gnuplot::DataSet->new(
+    xdata  => \@rx,
+    ydata  => \@ry,
+    title => '',
+    style  => 'lines',
+  );
+
+  $chart->plot2d($tail_d, $front_d);
 
   print "p1: ", scalar @visited_s, "\n";
 }
