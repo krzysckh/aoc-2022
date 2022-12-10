@@ -44,7 +44,7 @@ sub p2 {
       print ' ';
     }
   }
-  my @scr = ((0) x (40 * 6));
+
   my $reg = 1;
   my $cycle = -1;
   
