@@ -8,9 +8,7 @@ use Math::Utils qw(floor lcm);
 
 no warnings 'experimental';
 
-use feature 'say';
 use feature 'switch';
-use Data::Dumper;
 
 my $f;
 
@@ -46,18 +44,15 @@ sub p1 {
     $monkeys[$cur]->op([split / /, $_]);
 
     $_ = <$f>;
-    chomp;
-    $_ =~ s/[^\d]//g;
+    s/[^\d]//g;
     $monkeys[$cur]->test($_);
 
     $_ = <$f>;
-    chomp;
-    $_ =~ s/[^\d]//g;
+    s/[^\d]//g;
     $monkeys[$cur]->true($_);
 
     $_ = <$f>;
-    chomp;
-    $_ =~ s/[^\d]//g;
+    s/[^\d]//g;
     $monkeys[$cur]->false($_);
 
     $monkeys[$cur]->inspected(0);
@@ -72,7 +67,7 @@ sub p1 {
   push @tests, $_->test() for @monkeys;
   my $mod = lcm @tests;
   # i had to look for some hints on the aoc subreddit
-  # this is the first time i did it, and not i feel like a coward and a dumbass
+  # this is the first time i did it, and i feel like a coward and a dumbass
   # :^)
 
   my $max = $is_p2 ? 10000 : 20;
@@ -82,7 +77,7 @@ sub p1 {
         $monkey->inspected($monkey->inspected() + 1);
 
         my $item = shift @{$monkey->items()};
-        my $val = (@{$monkey->op()}[1] eq 'old') ? $item : @{$monkey->op()}[1];
+        my $val = @{$monkey->op()}[1] eq 'old' ? $item : @{$monkey->op()}[1];
 
         given ("" . @{$monkey->op()}[0]) {
           when ("+") { $item = $item + $val; }
@@ -105,8 +100,8 @@ sub p1 {
     }
   }
 
-  my @inspected = ();
-  push @inspected, $_->inspected() for (@monkeys);
+  my @inspected;
+  push @inspected, $_->inspected() for @monkeys;
   @inspected = sort { $b <=> $a } @inspected;
 
   print "p", $is_p2 ? 2 : 1, ": ", $inspected[0] * $inspected[1], "\n";
