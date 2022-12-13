@@ -1,0 +1,6 @@
+expected output:
+
+  $ perl 13.pl
+  p1: 4894
+  p2: 24180
+
