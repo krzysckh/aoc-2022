@@ -1,0 +1,6 @@
+expected output:
+
+  $ perl 14.pl
+  p1: 979
+  p2: 29044
+
