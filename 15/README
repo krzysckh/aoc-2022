@@ -1,0 +1,9 @@
+expected output:
+
+  $ perl 15.pl
+  p1: 5809294
+  $ awk '{ gsub(/[^\-0-9]/, " "); print $1, $2, $3, $4}' ./in > ./in-pre
+  $ cc 15.c
+  $ ./a.out
+  p2: 10693731308112
+
