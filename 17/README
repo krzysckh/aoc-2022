@@ -1,0 +1,8 @@
+no p2 :(
+
+expected output:
+
+  $ cc 17.c
+  $ ./a.out
+  p1: 3179
+
