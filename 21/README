@@ -1,0 +1,8 @@
+only pt 1 for now :(
+
+expected output:
+
+  $ cc 21.c
+  $ ./a.out
+  p1: 159591692827554
+
