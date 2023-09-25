@@ -1,0 +1,12 @@
+cheated a lil bit wich allocating memory, but it is what it is
+
+expected output:
+
+  $ gnuplot -p draw.gp
+  (use eyes)
+
+  $ cc 18.c
+  $ ./a.out
+  p1: 
+  p2: 
+
